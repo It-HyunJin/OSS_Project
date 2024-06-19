@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" >
+    <title>오늘의 일기📕</title>
+    
+    <style type="text/css">
+        h1{text-align: center;}
+        nav ul{list-style-type: none;text-align:center; font-size: 15pt; }
+        nav ul li{display: inline; margin: 70px; padding: 8px;}
+        nav ul li a{text-decoration-line: none;color: black;}
+        ul li a:visited{color:black;}
+        ul li a:hover{color: floralwhite; font-size: 20pt;}
+        body{background-image: url(images/castle.jpg);}
+        footer{color: white;}
+        .pos{text-align: center;}
+    </style>
+</head>
+<body style="background-color:#FFF;">
+   <header><h1>오늘의 일기📕</h1></header><hr>
+    <nav>
+        <ul>
+          <li><a href="{%url 'home'%}">홈으로</a></li>
+          <li><a href="{%url 'chatbot'%}">감정 말하기</a></li>
+        </ul>
+    </nav><hr><br>
+    <article>
+       <div style="text-align: center">
+        <iframe id="new" src="" width=600 height="400">
+        </iframe>
+        <script type="text/javascript">
+        function changeIframe(url){
+           document.getElementById("new").src = url;
+        }
+    </script>
+    <div style="text-align: center">
+    <button onclick="changeIframe(' https://www.youtube.com/embed/JUzPQ0JalHE')"> Play Music </button></div>
+    </div>
+    </article>
+    <br><br><br><hr>
+    <footer>
+        Sources by Youtube, https://grafolio.naver.com/works/751186
+    </footer>
+    
+</body>
+</html>
