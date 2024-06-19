@@ -1,0 +1,191 @@
+<!--<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+    
+    <script>
+      function sendAsk(){
+        ctext = document.getElementById("chattext").value;
+        if(ctext == ""){
+          document.getElementById("chattext").focus();
+          return false;
+        }
+        //alert(ctext);
+        addtext ="<div style='margin:14px 0;text-align:right;'><span style='background-color:#F4FA58; padding:5px 8px;border-radius:3px;'>" + ctext + "</span></div>"
+        document.getElementById("chatbox").innerHTML += addtext;
+
+        bottext ="<div style='margin:14px 0;text-align:left;'><span style='background-color:#FBFBEF; padding:5px 8px;border-radius:3px;'>안녕</span></div>"
+        document.getElementById("chatbox").innerHTML += bottext;
+
+        var mydiv = document.getElementById("chatbox");
+        mydiv.scrollTop = document.getElementById("chatbox").scrollHeight;
+      }
+    </script>
+    
+    <!--block styles%}-->
+    <!--<style>
+      .chatheader{
+        position:fixed;
+        left:0;
+        top:0;
+        width:100%;
+        padding:10px 0;
+        background-color:#F5FBEF;
+        color:#000;
+        text-align:center;
+      }
+      .chatfooter{
+        position:fixed;
+        left:0;
+        bottom:0;
+        width:100%;
+        padding:10px 0;
+        background-color:#FFF;
+        color:#000;
+        text-align:center;
+      }
+    </style>
+    <!--end block -->
+<!--</head>
+<body style="height:100%; background-color:#CEF6CE;">
+  <div style="padding:0px;height:100%;background-color:#e8e8e8;">
+    <div class="chatheader">
+      <table width="100%">
+        <tr>
+          <td width="50%" align="left">My chat</td> 
+        </tr>
+      </table>
+    </div>
+      
+    <div style="height:450px;margin-top:55px;background-color:#CEF6CE;" id="chatbox">
+        
+    </div>
+      
+    <div class="chatfooter">
+      <table width="100%">
+        <tr>
+          <td width="85%" align="left">
+            <input type="text" id="chattext" style="padding:10px 0; width:100%; border:solid 0px #000">
+          </td> 
+          <td width="15%" align="right">
+            <button style="padding:10px 0; width:100%" onclick="sendAsk()">SEND</button>
+          </td> 
+        </tr>
+      </table>
+    </div>
+  </div>
+
+    
+</body>
+</html>-->
+
+<!-- chatbot_app/templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+    <style>
+      .chatheader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 10px 0;
+        background-color: #F5FBEF;
+        color: #000;
+        text-align: center;
+      }
+      .chatfooter {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 10px 0;
+        background-color: #FFF;
+        color: #000;
+        text-align: center;
+      }
+    </style>
+    <script>
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+      }
+
+      function sendAsk() {
+        var ctext = document.getElementById("chattext").value;
+        if (ctext == "") {
+          document.getElementById("chattext").focus();
+          return false;
+        }
+        var addtext = "<div style='margin:14px 0;text-align:right;'><span style='background-color:#F4FA58; padding:5px 8px;border-radius:3px;'>" + ctext + "</span></div>";
+        document.getElementById("chatbox").innerHTML += addtext;
+
+        fetch('/chat-response/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCookie('csrftoken')
+          },
+          body: 'user_input=' + encodeURIComponent(ctext)
+        })
+        .then(response => response.json())
+        .then(data => {
+          var bottext = "<div style='margin:14px 0;text-align:left;'><span style='background-color:#FBFBEF; padding:5px 8px;border-radius:3px;'>" + data.response + "</span></div>";
+          document.getElementById("chatbox").innerHTML += bottext;
+          var mydiv = document.getElementById("chatbox");
+          mydiv.scrollTop = document.getElementById("chatbox").scrollHeight;
+        });
+
+        document.getElementById("chattext").value = "";
+      }
+
+      var input = document.getElementById("chattext");
+
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+          document.getElementById("sendbtn").click();
+        }
+      });
+    </script>
+</head>
+<body style="height:100%; background-color:#CEF6CE;">
+    <div style="padding:0px;height:100%;background-color:#e8e8e8;">
+        <div class="chatheader">
+            <table width="100%">
+                <tr>
+                    <td width="50%" align="left">My chat</td> 
+                </tr>
+            </table>
+        </div>
+
+        <div style="height:450px;margin-top:55px;background-color:#CEF6CE;overflow-y:scroll;overflow-x:hidden;max-height:100vh;" id="chatbox"></div>
+
+        <div class="chatfooter">
+            <table width="100%">
+                <tr>
+                    <td width="85%" align="left">
+                        <input type="text" id="chattext" style="padding:10px 0; width:100%; border:solid 0px #000">
+                    </td> 
+                    <td width="15%" align="right">
+                        <button style="padding:10px 0; width:100%" onclick="sendAsk()" id="sendbtn">SEND</button>
+                    </td> 
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
