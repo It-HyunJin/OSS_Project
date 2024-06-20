@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>나의 일기</title>
+</head>
+<body>
+    <h2 text-align:center;>우울도 분석</h2>
+    <form id="diaryForm" method="POST" action="{% url 'diary' %}">
+        {% csrf_token %}
+        <textarea name="user_input" rows="20" cols="150" placeholder="일기를 입력해주세요"></textarea><br>
+        <input type="submit" value="분석하기">
+    </form>
+    
+    {% if prediction is not None%}
+        <h2>분석 결과: {{ prediction }}%의 우울도가 감지되었습니다.</h2>
+        
+    {% elif prediction == 0%}
+        <h2>분석 결과:{{ prediction }}%의 우울도가 감지되었습니다.</h2>
+        
+    {% endif %}
+
+</body>
+</html>
