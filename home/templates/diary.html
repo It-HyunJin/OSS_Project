@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'Simple.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <title>나의 일기</title>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="margin">
+    <h2 text-align:center;>우울도 분석</h2></div>
+    <form id="diaryForm" method="POST" action="{% url 'diary' %}">
+        {% csrf_token %}
+        <textarea name="user_input" rows="20" cols="150" placeholder="일기를 입력해주세요" id="text"></textarea><br>
+        <div class="container">
+        <input id="button" type="submit" value="분석하기">
+        </div>
+    </form>
+    </div>
+    {% if prediction is not None%}
+        <h3>분석 결과: {{ prediction }}%의 우울도가 감지되었습니다.</h3>
+        
+    {% elif prediction == 0%}
+        <h3>분석 결과:{{ prediction }}%의 우울도가 감지되었습니다.</h3>
+        
+    {% endif %}
+
+</body>
+</html>
