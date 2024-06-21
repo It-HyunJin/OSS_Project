@@ -1,0 +1,243 @@
+* {
+  outline: none;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  font-family: Courier, monospace;
+}
+body {
+  background: #333
+    url(https://img.freepik.com/free-photo/cement-texture_1194-5292.jpg?w=360&t=st=1718910296~exp=1718910896~hmac=db2f6480dd0ac8056a12e636bfd01e7727f796cf2b7938f94723692e63341066) repeat;
+}
+#diaryForm {
+  color: #fff;
+  font-size: 20px;
+}
+#margin {
+  margin-left: 12px;
+  margin-bottom: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+#text {
+  width: 500px;
+  overflow: hidden;
+  background-color: #fff;
+  color: #222;
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  resize: none;
+  line-height: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 45px;
+  padding-bottom: 34px;
+  background-image: url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png),
+  url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+  background-repeat: repeat-y, repeat;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  -webkit-box-shadow: 0px 2px 14px #000;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+#title {
+  background-color: transparent;
+  border-bottom: 3px solid #fff;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Gowun Batang", serif;
+  height: 28px;
+  font-weight: bold;
+  width: 220px;
+}
+#button {
+    position: center;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "Gowun Batang", serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    margin-top: 50px;
+}
+
+.buttonn {
+    position: center;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-family: "Gowun Batang", serif;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    margin-top: 50px;
+    margin-bottom: 90px;
+}
+.buttonn:hover{
+    background-color: #6aafe6;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.buttonn:active {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+.buttonn:focus {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+#button:hover {
+    background-color: #6aafe6;
+    color: #ffffff;
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#button:active {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+#button:focus {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+#wrapper {
+  width: 700px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+  margin-bottom: 100px;
+}
+.gowun-batang-regular {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+  width: 700px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+h3 {
+  text-align: center;
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  width: 700px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+.containerr {
+  text-align: center;
+}
+
+.popup-wrap{
+  background-color:rgba(38, 156, 223, 0.18);
+  justify-content:center;
+  align-items:center;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:none;
+  padding:15px;
+  font-family: "Gowun Batang", serif;
+  display:block;
+  margin: auto;
+}
+.popup{
+  width:100%;
+  max-width:400px;
+  background-color:#ffffff;
+  border-radius:10px;
+  overflow:hidden;
+  background-color:#00462A;
+  box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3);
+  margin:auto;
+  font-family: "Gowun Batang", serif;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 120px;
+    background: #333
+    url(https://img.freepik.com/free-photo/cement-texture_1194-5292.jpg?w=360&t=st=1718910296~exp=1718910896~hmac=db2f6480dd0ac8056a12e636bfd01e7727f796cf2b7938f94723692e63341066) repeat;
+}
+
+.body-contentbox{
+  font-family: "Gowun Batang", serif;
+  word-break:break-word;
+  overflow-y:auto;
+  min-height:50px;
+  max-height:200px;
+  text-align:center;
+  display:block;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.popup-foot{
+  width:100%;
+  height:50px;
+  font-family: "Gowun Batang", serif;
+  display:block;
+  width: 400px;
+  margin: auto;
+}
+
+.pop-btn{
+  display:inline-flex;
+  width:49.5%;
+  height:100%;
+  float:left;
+  justify-content:center;
+  align-items:center;
+  color:#000000;
+  cursor:pointer;
+  border-top: 1px solid #000000;
+  font-family: "Gowun Batang", serif;
+}
+.pop-btn.confirm{
+  border-right:1px solid #000000;
+  font-family: "Gowun Batang", serif;
+}
+
+p {
+  font-family: "Gowun Batang", serif;
+}
