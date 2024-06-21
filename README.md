@@ -62,7 +62,7 @@
 * 데이터셋 분류, 라벨링을 통한 모델 학습
 * Django UI를 적용시켜 일기 작성 시 우울도 판별 프로그램 개발
 ###### 강규린:2215987
-* speech-to-text API 연동 및 구현
+* speech-to-text API 서버 연동 및 구현
 * Django UI를 활용한 speech-to-text 설계
 
 ## 문제점 및 실효성
