@@ -1,40 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8" >
-    <title>감정 말하기🤗</title>
-    
-    <style type="text/css">
-        h1{text-align: center;}
-        nav ul{list-style-type: none;text-align:center; font-size: 15pt; }
-        nav ul li{display: inline; margin: 70px; padding: 8px;}
-        nav ul li a{text-decoration-line: none;color: black;}
-        ul li a:visited{color:black;}
-        ul li a:hover{color: black; font-size: 20pt;}
-        .pos{text-align: center;}
-
-        <style>
-      .chatheader {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        padding: 10px 0;
-        background-color: ;
-        color: #000;
-        text-align: center;
-      }
-      .chatfooter {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        padding: 10px 0;
-        background-color: #FFF;
-        color: #000;
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'Chatbot.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+    <title>감정 말하기</title>
 
     <script>
       function getCookie(name) {
@@ -58,7 +31,7 @@
           document.getElementById("chattext").focus();
           return false;
         }
-        var addtext = "<div style='margin:14px 14px;text-align:right;'><span style='background-color:#FBDEA2; padding:5px 8px;border-radius:3px;'>" + ctext + "</span></div>";
+        var addtext = "<div style='text-align:right;'><span id = addtext>" + ctext + "</span></div>";
         document.getElementById("chatbox").innerHTML += addtext;
         var mydiv = document.getElementById("chatbox");
         mydiv.scrollTop = document.getElementById("chatbox").scrollHeight;
@@ -73,7 +46,7 @@
         })
         .then(response => response.json())
         .then(data => {
-          var bottext = "<div style='margin:14px 14px;text-align:left;'><span style='background-color:#FBFBEF; padding:5px 8px;border-radius:3px;'>" + data.response + "</span></div>";
+          var bottext = "<div ><span id = bottext>" + data.response + "</span></div>";
           document.getElementById("chatbox").innerHTML += bottext;
           var mydiv = document.getElementById("chatbox");
         mydiv.scrollTop = document.getElementById("chatbox").scrollHeight;
@@ -83,30 +56,25 @@
       }
     </script>
 </head>
-<body style="background-color:#FFF;">
-   <header><h1>감정 대화🤗</h1></header><hr>
-    <nav>
-        <ul>
-          <li><a href="{% url 'home' %}"> 홈으로 </a></li>
-          <li><a href="{% url 'diary' %}">오늘의 일기</a></li>
-        </ul>
-    </nav><hr>
-    <article style="height:100%;">
-      <div style="height:550px;margin-top:55px;background-color:#82B695;overflow-y:scroll;overflow-x:hidden;max-height:60vh;" id="chatbox"></div>
-      <div class="chatfooter">
+<body style="background-color:#FDF5E6;">
+  <pre><h5> <a href=" {% url 'home' %}"> 홈으로 </a> <a href=" {% url 'diary' %}"> 오늘의 일기 </a></h5></pre>
+  <div id="wrapper">
+    <div id="margin">
+    <h2 text-align:center;>감정 대화</h2></div>
+      <div id="chatbox"></div>
+      <div>
           <table width="100%">
               <tr>
                   <td width="85%" align="left">
-                      <input type="text" id="chattext" style="padding:10px 0; width:100%; border:solid 0px #000">
+                      <input type="text" id="chattext" >
                     </td> 
                   <td width="15%" align="right">
-                      <button style="padding:10px 0; width:100%" onclick="sendMe()" id="sendbtn">전송</button>
+                      <button onclick="sendMe()" id="sendbtn">전송</button>
                   </td> 
               </tr>
           </table>
       </div>
-    </article>
-    
+  </div> 
 </body>
 </html>
 <script>
