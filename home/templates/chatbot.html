@@ -46,7 +46,7 @@
         })
         .then(response => response.json())
         .then(data => {
-          var bottext = "<div ><span id = bottext>" + data.response + "</span></div>";
+          var bottext = "<div style='text-align:left;'><span id = bottext>" + data.response + "</span></div>";
           document.getElementById("chatbox").innerHTML += bottext;
           var mydiv = document.getElementById("chatbox");
         mydiv.scrollTop = document.getElementById("chatbox").scrollHeight;
